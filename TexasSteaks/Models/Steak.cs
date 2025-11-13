@@ -1,13 +1,39 @@
-﻿namespace TexasSteaks.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace TexasSteaks.Models
 {
     public class Steak
     {
         public int Id { get; set; }
+
+        [StringLength(100, MinimumLength = 3)]
+        [Required]
+        [Display(Name = "Name of the Steak")]
         public string Name { get; set; }
+
+        [StringLength(100, MinimumLength = 10)]
+        [Required]
+        [Display(Name = "Short description of the Steak")]
         public string ShortDescription { get; set; }
+
+        [StringLength(200, MinimumLength = 10)]
+        [Required]
+        [Display(Name = "Description of the Steak")]
         public string Description { get; set; }
+
+        [Required]
+        [Display(Name = "Price of the Steak")]
+        [Column(TypeName = "decimal(7,2)")]
+        [Range(1, 99999.00)]
         public decimal Price { get; set; }
+
+        [Display(Name = "Image URL of the Steak")]
+        [StringLength(300)]
         public string ImageURL { get; set; }
+
+        [Display(Name = "Image URL of the Steak")]
+        [StringLength(300)]
         public string ThumbnailURL { get; set; }
         public bool IsFavorite { get; set; }
         public bool InStock { get; set; }
