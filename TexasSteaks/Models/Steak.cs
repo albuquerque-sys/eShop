@@ -40,7 +40,17 @@ namespace TexasSteaks.Models
         [Display(Name = "Image URL of the Steak")]
         [StringLength(300)]
         public string ThumbnailURL { get; set; }
+        
+        [Required]
+        [Range(0, 5)]
+        public byte Star {  get; set; }
+
+        [Required]
+        [Range(0, 100)]
+        public byte Discount { get; set; }
+
         public bool IsFavorite { get; set; }
+        
         public bool InStock { get; set; }
 
         public int CategoryId { get; set; }
