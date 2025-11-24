@@ -59,7 +59,7 @@ namespace TexasSteaks.Models
         public virtual Category Category { get; set; }
 
         [NotMapped]
-        public decimal FinalPrice
+        public decimal DiscountedPrice
         {
             get { return (Discount == 0) ? 0 : (Price - (Price * Discount / 100)); }
         }
