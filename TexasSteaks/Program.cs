@@ -19,8 +19,12 @@ namespace TexasSteaks
 
             builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
             builder.Services.AddTransient<ISteakRepository, SteakRepository>();
+            builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddMemoryCache();
+            builder.Services.AddSession();
 
             var app = builder.Build();
 
@@ -36,6 +40,7 @@ namespace TexasSteaks
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
             app.UseAuthorization();
 
