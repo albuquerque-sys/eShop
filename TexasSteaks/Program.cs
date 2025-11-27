@@ -20,10 +20,9 @@ namespace TexasSteaks
             builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
             builder.Services.AddTransient<ISteakRepository, SteakRepository>();
             builder.Services.AddScoped<IShoppingCartRepository, ShoppingCartRepository>();
-            builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
+            
             builder.Services.AddControllersWithViews();
-
+            builder.Services.AddHttpContextAccessor();
             builder.Services.AddMemoryCache();
             builder.Services.AddSession();
 
