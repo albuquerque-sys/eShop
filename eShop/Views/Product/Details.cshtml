@@ -1,0 +1,33 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "Details";
+    ViewData["PageHeader"] = "Shop in style";
+    ViewData["PageDescription"] = "With this shop homepage template";
+}
+
+<div class="container">
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <!-- Product image-->
+                @if (Model.ImageURL is null)
+                {
+                    <img class="card-img-top" src="~/images/6c757d.jpg" alt="..." />
+                }
+                else
+                {
+                    <img class="card-img-top" src="~/images/products/@Model.ImageURL" alt="..." />
+                }
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Name</h5>
+                    <p class="card-text">@Model.ShortDescription</p>
+                    <p class="card-text text-center">
+                        <a class="btn btn-outline-dark mt-auto" id="cartButton" asp-controller="ShoppingCart" asp-action="AddItem" asp-route-productId="@Model.Id">Add to cart</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>

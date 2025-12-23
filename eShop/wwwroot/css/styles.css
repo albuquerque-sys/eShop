@@ -2,13 +2,6 @@ a {
     text-decoration: none;
 }
 
-.bg-header {
-    background-color: #0067b8 !important;
-}
-
-.bg-footer {
-    background-color: #f2f2f2 !important;
-}
 .fixed-size-btn {
     min-width: 200px;
     height: 40px;

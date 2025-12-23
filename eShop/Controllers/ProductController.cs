@@ -44,5 +44,11 @@ namespace eShop.Controllers
 
             return View(productsListViewModel);
         }
+
+        public IActionResult Details(int id)
+        {
+            var product = _productRepository.GetProductById(id);
+            return View(product);
+        }
     }
 }
